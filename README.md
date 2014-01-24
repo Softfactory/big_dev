@@ -32,16 +32,12 @@ $> vagrant provision
 ## Test Bid_Dev
 ### Hadoop MR
 $> hadoop fs -mkdir input
-
 $> hadoop fs -put /etc/hadoop/conf/*.xml input
-
 $> hadoop fs -ls input
-
 $> hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 10 10
 
 ### HBase
 $> hbase shell
-
 $> hbase > create 't1', {NAME => 'f1', VERSIONS => 5}
 
 ### Hive
