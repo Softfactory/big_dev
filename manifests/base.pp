@@ -7,12 +7,12 @@
 
 class bigdev {
 
-  # class {'java': require => Class['base']}
-  # class {'cdh4pseudo': require => Class['java']}
-  # class {'rinstall': require => Class['cdh4pseudo']}
-  # include base
-  # include java
-  # include cdh4pseudo
+  class {'java': require => Class['base']}
+  class {'cdh4pseudo': require => Class['java']}
+  class {'rinstall': require => Class['cdh4pseudo']}
+  include base
+  include java
+  include cdh4pseudo
   include rinstall
 
 }
