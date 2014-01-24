@@ -26,7 +26,7 @@ $> vagrant up
 ### When oracle-java-installer fails.
 $> vagrant provision
 ### It will take a long time. (~ 3 hr)
-### Did you meet a problem, comment out some modules in base.pp & retry
+### When error ocurred, comment out some modules in base.pp & retry
 $> vagrant provision
 
 ## Test Bid_Dev
