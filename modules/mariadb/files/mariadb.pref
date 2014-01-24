@@ -1,0 +1,3 @@
+Package: *
+Pin: origin ftp.kaist.ac.kr
+Pin-Priority: 1000

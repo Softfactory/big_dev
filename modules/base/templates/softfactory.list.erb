@@ -1,0 +1,7 @@
+deb [arch=<%= @architecture %>] http://archive.cloudera.com/cdh4/<%= @operatingsystem.downcase %>/<%= @lsbdistcodename.downcase %>/<%= @architecture %>/cdh <%= @lsbdistcodename.downcase %>-cdh4 contrib
+deb-src http://archive.cloudera.com/cdh4/<%= @operatingsystem.downcase %>/<%= @lsbdistcodename.downcase %>/<%= @architecture %>/cdh <%= @lsbdistcodename.downcase %>-cdh4 contrib
+deb http://ppa.launchpad.net/webupd8team/java/<%= @operatingsystem.downcase %> <%= @lsbdistcodename.downcase %> main
+deb-src http://ppa.launchpad.net/webupd8team/java/<%= @operatingsystem.downcase %> <%= @lsbdistcodename.downcase %> main
+deb http://ftp.kaist.ac.kr/mariadb/repo/5.5/<%= @operatingsystem.downcase %> <%= @lsbdistcodename.downcase %> main
+deb-src http://ftp.kaist.ac.kr/mariadb/repo/5.5/<%= @operatingsystem.downcase %> <%= @lsbdistcodename.downcase %> main
+deb http://cran.nexr.com/bin/linux/<%= @operatingsystem.downcase %> <%= @lsbdistcodename.downcase %> main

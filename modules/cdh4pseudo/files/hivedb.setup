@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# set for Hive Warehouse
+mysql -u root --password=rootpasswd \
+  -e "source /etc/puppet/files/modules/cdh4pseudo/files/hivedb.sql;"
+
+
+sudo touch /root/hivedb.done

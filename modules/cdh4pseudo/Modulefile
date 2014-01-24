@@ -1,0 +1,8 @@
+name    'Softfactory'
+version '0.1'
+source 'git://github.com/softfactory/big_dev/modules/cdh4pseudo'
+author 'bumryul@softfactory.org'
+license 'Apache'
+summary 'Manage a CDH4 Pseudo Distribution Mode installation'
+description 'Manage a CDH4 Pseudo Distribution Mode installation'
+project_page 'https://github.com/softfactory/big_dev/modules/cdh4pseudo'

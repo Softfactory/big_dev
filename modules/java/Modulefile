@@ -1,0 +1,8 @@
+name    'Softfactory'
+version '0.1'
+source 'git://github.com/softfactory/big_dev/modules/java'
+author 'bumryul@softfactory.org'
+license 'Apache'
+summary 'Manage a Oracle JDK 7 installation'
+description 'Manage a Oracle JDK 7 installation'
+project_page 'https://github.com/softfactory/big_dev/modules/java'

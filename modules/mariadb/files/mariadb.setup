@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Relax connection permissions.
+mysql -u root --password=rootpasswd \
+  -e "grant all privileges on *.* to 'root'@'%';"
+
+sudo touch /root/mysql.done

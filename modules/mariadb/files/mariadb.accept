@@ -1,0 +1,2 @@
+mariadb-server-5.5 mysql-server/root_password password rootpasswd
+mariadb-server-5.5 mysql-server/root_password_again password rootpasswd

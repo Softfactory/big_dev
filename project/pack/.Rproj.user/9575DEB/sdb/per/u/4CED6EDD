@@ -1,0 +1,17 @@
+{
+    "contents" : "options(\"repos\"=\"http://cran.nexr.com/\", dep=TRUE); \r\ninstall.packages(\"devtools\");\r\nh\r\n \r\n",
+    "created" : 1390146228408.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3475420712",
+    "id" : "4CED6EDD",
+    "lastKnownWriteTime" : 80,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
