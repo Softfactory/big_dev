@@ -21,10 +21,16 @@ class java {
     mode   => '0600',
   }
 
+  exec {'java-apt-update':
+    command => 'apt-get update',
+    path => $path,
+    require => File['/tmp/java.accept'],
+  }
+
   package { "oracle-java7-installer":
     ensure       => present,
     responsefile => '/tmp/java.accept',
-    require      => File['/tmp/java.accept'],
+    require => Exec['java-apt-update'],
   }
 
   package { 'oracle-java7-set-default':

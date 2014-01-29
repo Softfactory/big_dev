@@ -12,10 +12,10 @@
 #     include base::update
 #
 class base::update {
-  exec {'hostname' :
-    command => 'sudo hostname ${fqdn}',
-    path => $path
-  }
+  # exec {'hostname' :
+  #   command => 'sudo hostname ${fqdn}',
+  #   path => $path
+  # }
 
   exec {'tmp-update':
     command => 'apt-get update',
@@ -24,7 +24,6 @@ class base::update {
 
   # Event Chain for all Package Install
   Exec['tmp-update']->Package <| |>
-
 
   package {'curl': ensure => latest }
   package {'libcurl4-openssl-dev': ensure => latest }

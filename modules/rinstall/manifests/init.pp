@@ -15,7 +15,8 @@
 #     include rinstall
 #
 class rinstall {
-  class { 'rinstall::rbase' :
+  class{'rinstall::rbase' :
+    require => Class['cdh4pseudo::hive']
   }
 
   $url = 'http://download2.rstudio.org'

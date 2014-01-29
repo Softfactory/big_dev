@@ -14,14 +14,13 @@
 #     include rinstall::rbase
 # TODO remove Exec ['prepare-r-install-env']
 class rinstall::rbase {
-
 # Use the relevant Ubuntu box with the cran mirror
 # Install latest version of R
     exec {'prepare-r-install-env':
         unless => 'ls /usr/lib/R',
         provider => shell,
         creates => '/usr/lib/R',
-        command => 'apt-get update;'
+        command => 'ls '
     }
 
     # Get the core environment
