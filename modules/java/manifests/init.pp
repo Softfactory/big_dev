@@ -21,16 +21,10 @@ class java {
     mode   => '0600',
   }
 
-  exec {'java-apt-update':
-    command => 'apt-get update',
-    path => $path,
-    require => File['/tmp/java.accept'],
-  }
-
   package { "oracle-java7-installer":
     ensure       => present,
     responsefile => '/tmp/java.accept',
-    require => Exec['java-apt-update'],
+    require => File['/tmp/java.accept'],
   }
 
   package { 'oracle-java7-set-default':
@@ -44,9 +38,15 @@ class java {
           require => Package['oracle-java7-set-default']
   }
 
-  exec {"set-java-defaults":
-    command => 'sudo update-java-alternatives -s java-7-oracle',
-    path => $path,
-    require => Package['oracle-java7-set-default']
+  file { 'default-java' :
+    path => '/usr/lib/jvm/default-java' ,
+    ensure => link,
+    target => '/usr/lib/jvm/java-7-oracle',
+    require => File_line['sudo_rule_java']
+  }
+
+  file { "/etc/environment":
+        content => inline_template("LD_LIBRARY_PATH=/usr/lib/jvm/default-java/jre/lib/amd64:/usr/lib/jvm/default-java/jre/lib/amd64/server"),
+        require => File['default-java']
   }
 }

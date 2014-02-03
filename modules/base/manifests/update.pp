@@ -17,13 +17,9 @@ class base::update {
   #   path => $path
   # }
 
-  exec {'tmp-update':
-    command => 'apt-get update',
-    path => $path
-  }
-
   # Event Chain for all Package Install
-  Exec['tmp-update']->Package <| |>
+  #Exec['tmp-update']->Package <| |>
+  #Exec['tmp-update']->Package ['curl','','','']
 
   package {'curl': ensure => latest }
   package {'libcurl4-openssl-dev': ensure => latest }

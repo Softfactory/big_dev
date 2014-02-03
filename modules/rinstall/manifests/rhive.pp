@@ -36,18 +36,18 @@ class rinstall::rhive {
    #$sourcepath = '/RHive/inst/javasrc/src/com/nexr/rhive/util/DFUtils.java'
 
 
-   exec {'change_src' :
-     command => 'cp -f /etc/puppet/files/modules/rinstall/files/DFUtils.java /tmp/RHive/RHive/inst/javasrc/src/com/nexr/rhive/util/DFUtils.java',
-     path => $path,
-     require => Exec['download_rhive']
-   }
+  file {'change_src':
+    path => '/tmp/RHive/RHive/inst/javasrc/src/com/nexr/rhive/util/DFUtils.java',
+    replace => true,
+    source => 'puppet:///modules/rinstall/DFUtils.java',
+    require => Exec['download_rhive']
+  }
 
    exec {'build_env' :
-          command => 'cp -f /etc/puppet/files/modules/rinstall/files/build.xml /tmp/RHive/',
+          command => 'sudo cp -f /etc/puppet/files/modules/rinstall/files/build.xml /tmp/RHive/',
      path => $path,
-     require => Exec['change_src']
+     require => File['change_src']
    }
-
 
    exec {'install_rhive' :
      cwd =>'/tmp/RHive',

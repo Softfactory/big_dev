@@ -4,6 +4,23 @@
 
 options("repos"="http://cran.nexr.com/", dep=TRUE) # set the cran mirror
 
+# r-base-recommended
+
+# install.packages("KernSmooth",dep=TRUE)
+# install.packages("MASS",dep=TRUE)
+# install.packages("Matrix",dep=TRUE)
+# install.packages("boot",dep=TRUE)
+# install.packages("class",dep=TRUE)
+# install.packages("cluster",dep=TRUE)
+# install.packages("codetools",dep=TRUE)
+# install.packages("foreign",dep=TRUE)
+# install.packages("lattice",dep=TRUE)
+# install.packages("mgcv",dep=TRUE)
+# install.packages("nlme",dep=TRUE)
+# install.packages("nnet",dep=TRUE)
+# install.packages("rpart",dep=TRUE)
+# install.packages("spatial",dep=TRUE)
+# install.packages("survival",dep=TRUE)
 
 # # Update existing packages
 # update.packages(ask = FALSE)
@@ -51,12 +68,9 @@ options("repos"="http://cran.nexr.com/", dep=TRUE) # set the cran mirror
 # #install.packages("devtools", dep=TRUE)
 
 
-# # Packages for Hive not
+# # Packages for RHive
 install.packages("rJava", dep=TRUE)
 install.packages("Rserve", dep=TRUE)
-# #install.packages("RHive", dep=TRUE)
-
-
 
 # # Working with data
 # install.packages("stringr", dep=TRUE) # string handling

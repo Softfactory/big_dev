@@ -16,25 +16,25 @@ class cdh4pseudo::hive {
   ## install MariaDB as a Metastore
   ##include mariadb
 
+  package { 'hive':
+    ensure => latest,
+    require => Class['mariadb']
+  }
+
   exec { 'hivedb' :
     unless => 'ls /root/hivedb.done',
     command =>'/etc/puppet/files/modules/cdh4pseudo/files/hivedb.setup',
     path => $path,
     creates => '/root/hivedb.done',
-    require => Class['mariadb']
+    require => Package['hive']
 
-  }
-
-  package { 'hive':
-    ensure => latest,
-    require => Exec['hivedb']
   }
 
   file {'mysql-connector-java' :
     path => '/usr/lib/hive/lib/mysql-connector-java.jar' ,
     ensure => link,
     target => '/usr/share/java/mysql-connector-java.jar',
-    require => Package['hive']
+    require => Exec['hivedb']
   }
 
   package { 'hive-metastore':
@@ -60,9 +60,17 @@ class cdh4pseudo::hive {
     require =>  Exec['mkdir-hive']
   }
 
+  file {'hive-site':
+    path => '/etc/hive/conf/hive-site.xml',
+    replace => true,
+    source => 'puppet:///modules/cdh4pseudo/hive-site.xml',
+    mode   => '0644',
+    require => Exec['chmod-hive']
+  }
+
   service { 'hive-metastore':
     ensure => running,
-    require => Exec['chmod-hive']
+    require => File['hive-site']
   }
 
   service { 'hive-server2':

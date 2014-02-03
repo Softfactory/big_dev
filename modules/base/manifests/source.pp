@@ -55,26 +55,34 @@ class base::source{
   $os_downcase = downcase($::operatingsystem)
 
   exec {'add-cdh4-key':
+    unless => 'ls /root/cdh4.key.lock',
     command => "curl -s http://archive.cloudera.com/cdh4/${os_downcase}/${::lsbdistcodename}/${::architecture}/cdh/archive.key | sudo apt-key add -",
     path => $path,
+    creates => '/root/cdh4.key.lock',
     require => [File['sourcelist'], Package['curl']]
   }
 
   exec {'add-java-key':
+    unless => 'ls /root/java.key.lock',
     command => "apt-key adv --recv-keys --keyserver keyserver.ubuntu.com EEA14886",
     path => $path,
+    creates => '/root/java.key.lock',
     require => File['sourcelist']
   }
 
   exec {'add-mariadb-key':
+    unless => 'ls /root/mariadb.key.lock',
     command => "apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db",
     path => $path,
+    creates => '/root/mariadb.key.lock',
     require => File['sourcelist']
   }
 
   exec {'add-R-key':
+    unless => 'ls /root/r.key.lock',
     command => "/usr/bin/apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80  E084DAB9",
     path => $path,
+    creates => '/root/r.key.lock',
     require => File['sourcelist']
   }
 

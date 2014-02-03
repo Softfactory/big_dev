@@ -33,7 +33,7 @@ class mariadb {
   #           apt-cache show mysql-common | grep Version
   #           apt-cache show libmysqlclient18 | grep Version
   package { 'mariadb_dependency':
-      name => ['libmysqlclient18=5.5.34+maria-1~precise','mysql-common=5.5.34+maria-1~precise'],
+      name => ['libmysqlclient18=5.5.35+maria-1~precise','mysql-common=5.5.35+maria-1~precise'],
       ensure => present,
       require      => File['/tmp/mariadb.accept'],
   }

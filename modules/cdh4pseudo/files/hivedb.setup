@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# set for Hive Warehouse
+# set Hive Warehouse
 mysql -u root --password=rootpasswd \
   -e "source /etc/puppet/files/modules/cdh4pseudo/files/hivedb.sql;"
 
+mysql -u root --password=rootpasswd metastore < /usr/lib/hive/scripts/metastore/upgrade/mysql/hive-schema-0.10.0.mysql.sql
 
 sudo touch /root/hivedb.done

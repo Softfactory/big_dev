@@ -16,10 +16,18 @@
 #     include base
 #
 class base{
+
   class {'base::source': require => Class['base::update']}
   class {'base::sudoers': require => Class['base::source']}
 
   include base::update
   include base::source
   include base::sudoers
+
+  exec {'source-update':
+    command => 'apt-get update',
+    path => $path,
+    require => Class['base::sudoers']
+  }
+
 }
