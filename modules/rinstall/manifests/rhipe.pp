@@ -21,12 +21,12 @@ class rinstall::rhipe {
    #   require => Package['git']
    # }
 
-
   file { "RHipe_ENV":
         path =>'/etc/environment',
         content => inline_template("HADOOP=/usr/lib/hadoop"),
         #require => File['default-java']
   }
+
    package {'protobuf' :
       name => ['libprotobuf-dev', 'libprotobuf-java','libprotobuf7', 'libprotoc-dev','libprotoc7','protobuf-compiler'],
       ensure => present,
@@ -41,3 +41,4 @@ class rinstall::rhipe {
    }
 
 }
+

@@ -22,27 +22,24 @@ class rinstall::rhive {
      require => Package['git']
    }
 
-   #$sourcepath = '/RHive/inst/javasrc/src/com/nexr/rhive/util/DFUtils.java'
-
-
-  file {'change_src':
+  file {'change_src_rhive':
     path => '/tmp/RHive/RHive/inst/javasrc/src/com/nexr/rhive/util/DFUtils.java',
     replace => true,
     source => 'puppet:///modules/rinstall/DFUtils.java',
     require => Exec['download_rhive']
   }
 
-   exec {'build_env' :
+   exec {'build_env_rhive' :
           command => 'sudo cp -f /etc/puppet/files/modules/rinstall/files/build.xml /tmp/RHive/',
      path => $path,
-     require => File['change_src']
+     require => File['change_src_rhive']
    }
 
    exec {'install_rhive' :
      cwd =>'/tmp/RHive',
      command => 'sudo ant build;sudo R CMD build RHive;sudo R CMD INSTALL RHive_*.tar.gz;',
      path => $path,
-     require => [Exec['build_env'], Package['ant']]
+     require => [Exec['build_env_rhive'], Package['ant']]
    }
 
 

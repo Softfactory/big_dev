@@ -1,7 +1,7 @@
  # -*- mode: ruby -*-
 # vi: set ft=ruby nowrap sw=2 sts=2 ts=8 noet:
 
-class bigdev {
+# class bigdev {
 
   exec {'main-update':
     command => 'apt-get update',
@@ -20,4 +20,3 @@ class bigdev {
 }
 
 include bigdev
-

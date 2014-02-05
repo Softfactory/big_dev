@@ -47,4 +47,13 @@ class rinstall {
     require => Exec['rstudio_install']
   }
 
+  file { "Rprofile":
+        path =>'/home/vagrant/.Rprofile',
+        source => 'puppet:///modules/rinstall/Rprofile',
+        require => Class['rinstall::rhive']
+  }
+
+
+
+
 }

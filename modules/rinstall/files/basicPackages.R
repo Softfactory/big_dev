@@ -64,6 +64,21 @@ options("repos"="http://cran.nexr.com/", dep=TRUE) # set the cran mirror
 # install.packages("runjags", dep=TRUE)
 # install.packages("MCMCpack", dep=TRUE)
 
+# install.packages("wordcloud", dep=TRUE) # Tag Cloud
+# install.packages("igraph", dep=TRUE)
+
+# #sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev libfreetype6-dev
+# install.packages("rgl", dep=TRUE)
+
+## Forecasting & Time Series
+
+
+
+## Cluster Analysis
+
+
+##
+
 # # Package management and development
 # #install.packages("devtools", dep=TRUE)
 

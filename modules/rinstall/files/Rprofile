@@ -1,0 +1,13 @@
+# .Rprofile -- commands to execute at the beginning of each R session
+#
+# You can use this file to load packages, set options, etc.
+#
+# NOTE: changes in this file won't be reflected until after you quit
+# and start a new session
+#
+
+Sys.setenv(JAVA_HOME="/usr/lib/usr/lib/jvm/default-java")
+Sys.setenv(HADOOP_HOME="/usr/lib/hadoop")
+Sys.setenv(HADOOP_BIN="/usr/lib/hadoop/bin")
+Sys.setenv(HADOOP_LIBS="/usr/lib/hadoop/lib:/usr/lib/hadoop/client")
+Sys.setenv(HADOOP_CONF_DIR="/etc/hadoop/conf")
