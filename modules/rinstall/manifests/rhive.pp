@@ -1,7 +1,7 @@
 #
 # Class: rinstall::rhive
 #
-# Install R
+# Install RHive
 #
 # Parameters:
 #
@@ -9,17 +9,6 @@
 #     Manage an RHive installation
 #
 # Requires:
-#
-# Sample Usage:
-#     include rinstall::rhive
-#
-#    1. Download source code: <code>git clone https://github.com/nexr/RHive.git</code>
-#    2. Change your working directory: <code>cd RHive</code>
-#    3. Set the environment variables HIVE_HOME and HADOOP_HOME: <code>export HIVE_HOME=/path/to/your/hive/directory</code> <code>export HADOOP_HOME=/path/#to/your/hadoop/directory</code>#
-#    5. Build java files using ant: <code>ant build</code>#
-#    4. Build RHive: <code>R CMD build RHive</code>
-#    5. Install RHive: <code>R CMD INSTALL RHive_<VERSION>.tar.gz</code>
-
 
 class rinstall::rhive {
    package { ['git','ant'] :
