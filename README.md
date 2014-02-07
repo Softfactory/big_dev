@@ -1,14 +1,14 @@
-# Pseudo Distributed Mode with CDH4 & R
+## Pseudo Distributed Mode Hadoop
 
-## Requirements
+### Requirements
   1. OS - Ubuntu Precise
   2. Virtual Box - 4.2.10
   3. Vagrant - 1.4.3
 
-## Mode
+### Mode
   Pseudo Distributed
 
-## Intallation Package List
+### Provisioning
 ```
   Oracle JDK 7
   CDH4 - hadoop(Yarn, MRv2),  hbase, hive
@@ -16,22 +16,22 @@
   R - RHive, RHipe
   R Studio
 ```
-## Usage
-### Install VirtualBox & Vagrant first.
+### Usage
+Install VirtualBox & Vagrant.
 ```
 $> vagrant up
 ```
-### When oracle-java-installer fails.
+When oracle-java-installer fails.
 ```
 $> vagrant provision
 ```
-### It may take a long time. (~ 1 hr)
-### When error ocurred, comment out some modules in base.pp & retry
+It may take a long time. (~ 1 hr).
+Comment out some modules in base.pp & retry
 ```
 $> vagrant provision
 ```
-## Test Bid_Dev
-### Hadoop MR
+### Test Bid_Dev
+Hadoop MR
 ```
 $> hadoop fs -mkdir input
 $> hadoop fs -put /etc/hadoop/conf/*.xml input
@@ -39,19 +39,19 @@ $> hadoop fs -ls input
 $> hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 10 10
 ```
 
-### HBase
+HBase
 ```
 $> hbase shell
 $> hbase > create 't1', {NAME => 'f1', VERSIONS => 5}
 ```
-### Hive
+Hive
 ```
 $> hive
 hive> create table hbase_users (key string, v01 string, v02 string, v03 string)
 stored by 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
 with serdeproperties ('hbase.columns.mapping'=':key,n:v01,n:v02,n:v03');
 ```
-### R
+R
 ```
 $> R
 
