@@ -22,6 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 50075, host:  50075  #Directory
   config.vm.network "forwarded_port", guest: 19888, host:  19888  #Job History Web
   config.vm.network "forwarded_port", guest: 60010, host:  60010  #HBase Master
+  config.vm.network "forwarded_port", guest: 3306, host:  3306    #MariaDB
 
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
