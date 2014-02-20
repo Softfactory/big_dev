@@ -15,12 +15,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
 
+  config.vm.network "forwarded_port", guest: 8021,  host: 8021    #tracker
   config.vm.network "forwarded_port", guest: 8042,  host: 8042    #NodeManager
   config.vm.network "forwarded_port", guest: 8088,  host: 8088    #Resource Manager
+  config.vm.network "forwarded_port", guest: 8080,  host: 8080    #Job History?
   config.vm.network "forwarded_port", guest: 8787,  host: 8787    #RStudio
   config.vm.network "forwarded_port", guest: 50070, host:  50070  #NameNode
   config.vm.network "forwarded_port", guest: 50075, host:  50075  #Directory
   config.vm.network "forwarded_port", guest: 19888, host:  19888  #Job History Web
+  config.vm.network "forwarded_port", guest: 10020, host:  10020  #Job History
   config.vm.network "forwarded_port", guest: 60010, host:  60010  #HBase Master
   config.vm.network "forwarded_port", guest: 3306, host:  3306    #MariaDB
 

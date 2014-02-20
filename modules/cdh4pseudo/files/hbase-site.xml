@@ -40,6 +40,11 @@
      <value>localhost</value>
   </property>
    -->
+
+  <property>
+     <name>hbase.rest.port</name>
+     <value>8090</value>
+  </property>
   <property>
      <name>hbase.zookeeper.property.clientPort</name>
      <value>2181</value>

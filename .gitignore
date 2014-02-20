@@ -4,4 +4,6 @@
 /project/rmsWeb.Rcheck
 /project/pack/.Rproj.user
 /project/*.gz
+/project/*.csv
+/project/TempStatsStore
 .Rproj.user
