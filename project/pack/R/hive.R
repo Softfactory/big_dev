@@ -5,6 +5,10 @@ rhive.init(hiveHome="/etc/hive", hiveLib="/usr/lib/hive/lib", hadoopHome="/etc/h
 rhive.connect()
 
 
+
+rhive.query("select * from mr001")
+
+
 rhive.big.query
 rhive.query
 rhive.execute 

@@ -10,10 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
   # see http://puppet-vagrant-boxes.puppetlabs.com/
 
-  config.vm.hostname="big.softfactory.org"
   # https://github.com/mitchellh/vagrant/issues/2309
-  # Boot with a GUI so you can see the screen. (Default is headless)
-  # config.vm.boot_mode = :gui
+  config.vm.hostname="big.softfactory.org"
 
   config.vm.network "forwarded_port", guest: 8021,  host: 8021    #tracker
   config.vm.network "forwarded_port", guest: 8042,  host: 8042    #NodeManager
@@ -26,6 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 10020, host:  10020  #Job History
   config.vm.network "forwarded_port", guest: 60010, host:  60010  #HBase Master
   config.vm.network "forwarded_port", guest: 3306, host:  3306    #MariaDB
+  # config.vm.network "forwarded_port", guest: 5900, host:  5900    #VNC
 
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
@@ -47,6 +46,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.name = "Big_Dev"
     v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
     v.memory = 3000
+    # Boot with a GUI so you can see the screen. (Default is headless)
+    # v.gui=true
   end
 
 end

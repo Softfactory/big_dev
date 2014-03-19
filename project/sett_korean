@@ -1,0 +1,7 @@
+sudo apt-get install uim-fep uim-byeoru fbterm
+sudo apt-get install ttf-nanum-coding
+sudo apt-get install ttf-nanum
+sudo locale-gen ko_KR.UTF-8
+
+fbterm
+/usr/bin/fbterm -- /usr/bin/uim-fep -u byeoru

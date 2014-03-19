@@ -30,4 +30,6 @@ class base{
     require => Class['base::sudoers']
   }
 
+  # sudo apt-get install ubuntu-desktop
+
 }
