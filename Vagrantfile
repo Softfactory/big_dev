@@ -42,12 +42,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.module_path = "modules"
     puppet.options = "--verbose --debug" #--verbose --debug
   end
+
   config.vm.provider "virtualbox" do |v|
     v.name = "Big_Dev"
     v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
     v.memory = 3000
     # Boot with a GUI so you can see the screen. (Default is headless)
-    # v.gui=true
+    v.gui=true
+
+
   end
+
+  config.vbguest.auto_update = false
+  config.vbguest.no_remote = true
+  config.vbguest.no_install=true
 
 end

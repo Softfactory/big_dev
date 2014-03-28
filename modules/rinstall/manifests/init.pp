@@ -52,8 +52,4 @@ class rinstall {
         source => 'puppet:///modules/rinstall/Rprofile',
         require => Class['rinstall::rhive']
   }
-
-
-
-
 }

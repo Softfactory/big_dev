@@ -19,10 +19,12 @@ class base{
 
   class {'base::source': require => Class['base::update']}
   class {'base::sudoers': require => Class['base::source']}
+  class {'base::korean': require => Class['base::sudoers']}
 
   include base::update
   include base::source
   include base::sudoers
+  include base::korean
 
   exec {'source-update':
     command => 'apt-get update',
